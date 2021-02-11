@@ -8,7 +8,7 @@ public extension Reader {
       let contents: String = try absoluteSource.read()
 
       // First we parse the markdown file
-      let markdown = try Parsley.parse(contents, options: [.safe, .hardBreaks, .smartQuotes])
+      let markdown = try Parsley.parse(contents, options: [.unsafe, .hardBreaks, .smartQuotes])
 
       // Then we try to decode the embedded metadata within the markdown (which otherwise is just a [String: String] dict)
       let decoder = makeMetadataDecoder(for: markdown.metadata)
