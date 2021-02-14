@@ -15,7 +15,7 @@ public extension Reader {
       let date = try resolvePublishingDate(from: absoluteSource, decoder: decoder)
       let metadata = try M.init(from: decoder)
 
-      // Create the Page
+      // Create the Item
       let item = Item(
         relativeSource: relativeSource,
         relativeDestination: relativeDestination,
@@ -27,7 +27,7 @@ public extension Reader {
         metadata: metadata
       )
 
-      // Run the processor, if any, to modify the Page
+      // Run the processor, if any, to modify the Item
       if let itemProcessor = itemProcessor {
         itemProcessor(item)
       }
