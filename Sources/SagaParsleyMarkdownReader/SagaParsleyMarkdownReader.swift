@@ -8,10 +8,10 @@ public extension Reader {
       let contents: String = try absoluteSource.read()
 
       // First we parse the markdown file
-      let markdown = try Parsley.parse(contents, options: [.unsafe, .hardBreaks, .smartQuotes])
+      let document = try Parsley.parse(contents, options: [.unsafe, .hardBreaks, .smartQuotes])
 
       // Then we try to decode the embedded metadata within the markdown (which otherwise is just a [String: String] dict)
-      let decoder = makeMetadataDecoder(for: markdown.metadata)
+      let decoder = makeMetadataDecoder(for: document.metadata)
       let date = try resolvePublishingDate(from: absoluteSource, decoder: decoder)
       let metadata = try M(from: decoder)
 
@@ -19,9 +19,9 @@ public extension Reader {
       let item = Item(
         relativeSource: relativeSource,
         relativeDestination: relativeDestination,
-        title: markdown.title ?? absoluteSource.lastComponentWithoutExtension,
+        title: document.title ?? absoluteSource.lastComponentWithoutExtension,
         rawContent: contents,
-        body: markdown.body,
+        body: document.body,
         date: date,
         lastModified: absoluteSource.modificationDate ?? Date(),
         metadata: metadata

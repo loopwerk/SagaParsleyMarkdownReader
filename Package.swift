@@ -14,7 +14,7 @@ let package = Package(
   ],
   dependencies: [
     .package(name: "Saga", url: "https://github.com/loopwerk/Saga.git", from: "0.18.0"),
-    .package(name: "Parsley", url: "https://github.com/loopwerk/Parsley", from: "0.3.0"),
+    .package(name: "Parsley", url: "https://github.com/loopwerk/Parsley", from: "0.5.0"),
   ],
   targets: [
     .target(
