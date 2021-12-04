@@ -3,7 +3,7 @@ import Saga
 import Parsley
 
 public extension Reader {
-  static func parsleyMarkdownReader(itemProcessor: ((Item<M>) -> Void)? = nil) -> Self {
+  static func parsleyMarkdownReader(itemProcessor: ((Item<M>) async -> Void)? = nil) -> Self {
     Reader(supportedExtensions: ["md", "markdown"], convert: { absoluteSource, relativeSource, relativeDestination in
       let contents: String = try absoluteSource.read()
 
@@ -29,7 +29,7 @@ public extension Reader {
 
       // Run the processor, if any, to modify the Item
       if let itemProcessor = itemProcessor {
-        itemProcessor(item)
+        await itemProcessor(item)
       }
 
       return item

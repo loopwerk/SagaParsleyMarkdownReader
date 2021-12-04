@@ -9,8 +9,8 @@ Include `SagaParsleyMarkdownReader` in your Package.swift as usual:
 let package = Package(
   name: "MyWebsite",
   dependencies: [
-    .package(url: "https://github.com/loopwerk/Saga", from: "0.19.0"),
-    .package(url: "https://github.com/loopwerk/SagaParsleyMarkdownReader", from: "0.4.0"),
+    .package(url: "https://github.com/loopwerk/Saga", from: "1.0.0"),
+    .package(url: "https://github.com/loopwerk/SagaParsleyMarkdownReader", from: "0.6.0"),
   ],
   targets: [
     .target(
