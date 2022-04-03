@@ -10,7 +10,7 @@ let package = Package(
   name: "MyWebsite",
   dependencies: [
     .package(url: "https://github.com/loopwerk/Saga", from: "1.0.0"),
-    .package(url: "https://github.com/loopwerk/SagaParsleyMarkdownReader", from: "0.6.0"),
+    .package(url: "https://github.com/loopwerk/SagaParsleyMarkdownReader", from: "0.5.0"),
   ],
   targets: [
     .target(
