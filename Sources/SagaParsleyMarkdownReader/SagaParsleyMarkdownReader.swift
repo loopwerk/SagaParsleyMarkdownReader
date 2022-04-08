@@ -3,12 +3,19 @@ import Saga
 import Parsley
 
 public extension Reader {
-  static func parsleyMarkdownReader(itemProcessor: ((Item<M>) async -> Void)? = nil) -> Self {
+  static func parsleyMarkdownReader(
+    markdownOptions: MarkdownOptions = [.unsafe, .hardBreaks, .smartQuotes],
+    syntaxExtensions: [SyntaxExtension] = SyntaxExtension.defaultExtensions,
+    itemProcessor: ((Item<M>) async -> Void)? = nil) -> Self {
     Reader(supportedExtensions: ["md", "markdown"], convert: { absoluteSource, relativeSource, relativeDestination in
       let contents: String = try absoluteSource.read()
 
       // First we parse the markdown file
-      let document = try Parsley.parse(contents, options: [.unsafe, .hardBreaks, .smartQuotes])
+      let document = try Parsley.parse(
+        contents,
+        options: markdownOptions,
+        syntaxExtensions: syntaxExtensions
+      )
 
       // Then we try to decode the embedded metadata within the markdown (which otherwise is just a [String: String] dict)
       let decoder = makeMetadataDecoder(for: document.metadata)
