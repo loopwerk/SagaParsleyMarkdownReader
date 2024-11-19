@@ -19,7 +19,7 @@ public extension Reader {
 
       // Then we try to decode the embedded metadata within the markdown (which otherwise is just a [String: String] dict)
       let decoder = makeMetadataDecoder(for: document.metadata)
-      let date = try resolvePublishingDate(from: absoluteSource, decoder: decoder)
+      let published = try resolvePublishingDate(from: absoluteSource, decoder: decoder)
       let metadata = try M(from: decoder)
 
       // Create the Item
@@ -29,7 +29,8 @@ public extension Reader {
         title: document.title ?? absoluteSource.lastComponentWithoutExtension,
         rawContent: contents,
         body: document.body,
-        date: date,
+        published: published,
+        created: absoluteSource.creationDate ?? Date(),
         lastModified: absoluteSource.modificationDate ?? Date(),
         metadata: metadata
       )
