@@ -1,6 +1,6 @@
 import Foundation
-import Saga
 import Parsley
+import Saga
 
 public extension Reader {
   static var parsleyMarkdownReader: Self {
@@ -9,7 +9,8 @@ public extension Reader {
 
   static func parsleyMarkdownReader(
     markdownOptions: MarkdownOptions = [.unsafe, .hardBreaks, .smartQuotes],
-    syntaxExtensions: [SyntaxExtension] = SyntaxExtension.defaultExtensions) -> Self {
+    syntaxExtensions: [SyntaxExtension] = SyntaxExtension.defaultExtensions
+  ) -> Self {
     Reader(supportedExtensions: ["md", "markdown"], convert: { absoluteSource in
       let rawContent: String = try absoluteSource.read()
       let document = try Parsley.parse(
