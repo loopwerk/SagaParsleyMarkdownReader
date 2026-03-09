@@ -1,11 +1,11 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.10
 
 import PackageDescription
 
 let package = Package(
   name: "SagaParsleyMarkdownReader",
   platforms: [
-    .macOS(.v12),
+    .macOS(.v14),
   ],
   products: [
     .library(
@@ -14,9 +14,9 @@ let package = Package(
     ),
   ],
   dependencies: [
-    .package(name: "Saga", url: "https://github.com/loopwerk/Saga.git", from: "2.0.3"),
-    .package(name: "Parsley", url: "https://github.com/loopwerk/Parsley", from: "1.0.0"),
-    .package(name: "PathKit", url: "https://github.com/kylef/PathKit", from: "1.0.1"),
+    .package(url: "https://github.com/loopwerk/Saga.git", from: "2.0.3"),
+    .package(url: "https://github.com/loopwerk/Parsley", from: "1.0.0"),
+    .package(url: "https://github.com/kylef/PathKit", from: "1.0.1"),
   ],
   targets: [
     .target(
