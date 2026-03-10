@@ -16,7 +16,6 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/loopwerk/Saga.git", from: "2.0.3"),
     .package(url: "https://github.com/loopwerk/Parsley", from: "1.0.0"),
-    .package(url: "https://github.com/kylef/PathKit", from: "1.0.1"),
   ],
   targets: [
     .target(
@@ -30,7 +29,6 @@ let package = Package(
       name: "SagaParsleyMarkdownReaderTests",
       dependencies: [
         "SagaParsleyMarkdownReader",
-        "PathKit",
       ],
       resources: [
         .copy("test-content.md"),
