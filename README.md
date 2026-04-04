@@ -9,15 +9,38 @@ Include `SagaParsleyMarkdownReader` in your Package.swift as usual:
 let package = Package(
   name: "MyWebsite",
   dependencies: [
-    .package(url: "https://github.com/loopwerk/Saga", from: "1.0.0"),
-    .package(url: "https://github.com/loopwerk/SagaParsleyMarkdownReader", from: "0.5.0"),
+    .package(url: "https://github.com/loopwerk/SagaParsleyMarkdownReader", from: "1.0.0"),
   ],
   targets: [
     .target(
       name: "MyWebsite",
-      dependencies: ["Saga", "SagaParsleyMarkdownReader"]),
+      dependencies: ["SagaParsleyMarkdownReader"]),
   ]
 )
 ```
 
 And then in your website you can `import SagaParsleyMarkdownReader` and use `parsleyMarkdownReader`.
+
+## About Parsley
+
+Parsley is a full-featured Markdown parser with support for Github-Flavored Markdown (GFM), metadata (frontmatter), and Markdown attributes:
+
+~~~text
+---
+author: Kevin Renskers
+tags: swift, saga
+date: 2026-04-05
+---
+
+# Hello Markdown! {.special #intro}
+
+![Alt text](image.png)
+{.hero}
+
+```swift {data-title="main.swift"}
+print("Hello, World!")
+```
+
+This is a paragraph with a class.
+{.note}
+~~~
