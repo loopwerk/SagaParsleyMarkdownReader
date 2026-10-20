@@ -6,6 +6,10 @@ public extension Reader {
   static var parsleyMarkdownReader: Self {
     .parsleyMarkdownReader()
   }
+  
+  static var parsleyMarkdownWithAttributesReader: Self {
+    .parsleyMarkdownReader(markdownOptions: [.unsafe, .hardBreaks, .smartQuotes, .markdownAttributes])
+  }
 
   static func parsleyMarkdownReader(
     markdownOptions: MarkdownOptions = [.unsafe, .hardBreaks, .smartQuotes],
