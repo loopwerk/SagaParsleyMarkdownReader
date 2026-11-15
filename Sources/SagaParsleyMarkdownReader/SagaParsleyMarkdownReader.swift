@@ -6,7 +6,7 @@ public extension Reader {
   static var parsleyMarkdownReader: Self {
     .parsleyMarkdownReader()
   }
-  
+
   static var parsleyMarkdownWithAttributesReader: Self {
     .parsleyMarkdownReader(markdownOptions: [.unsafe, .hardBreaks, .smartQuotes, .markdownAttributes])
   }
